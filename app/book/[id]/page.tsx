@@ -38,7 +38,6 @@ export default async function BookPage({ params }: { params: { id: string } }) {
               <p className="text-sm text-muted-foreground mb-2">
                 Try one of these popular transformations or <a href="#story-transform" className="underline text-emerald-700 hover:text-emerald-900">click here for more options</a>.
               </p>
-              <QuickTransformations book={book} />
             </div>
           </div>
         </CardContent>

@@ -18,6 +18,7 @@ import { usePlayer } from "@/lib/player/player-context"
 import { AUDIO_VERSIONS, AudioVersionId } from "@/lib/player/player-context"
 import { getAllVoices } from "@/lib/voices"
 import { setBookVoice } from "@/lib/voice-storage"
+import { QuickTransformations } from "@/components/quick-transformations"
 
 interface ReimageStoryProps {
   book: Book
@@ -311,75 +312,81 @@ export function ReimageStory({ book }: ReimageStoryProps) {
         <CardHeader className="bg-gradient-to-r from-emerald-500/10 to-transparent">
           <div className="flex items-center">
             <Wand2 className="h-5 w-5 text-emerald-500 mr-2" />
-            <CardTitle>Advanced Story Transformation</CardTitle>
+            <CardTitle>AI Transformations</CardTitle>
           </div>
           <CardDescription>
-            Fine-tune exactly how you want this story reimagined with detailed AI controls
+            Instantly reimagine this story with the power of AI. Choose a popular reimagining or fine-tune with advanced controls below.
           </CardDescription>
         </CardHeader>
 
         <CardContent className="pt-6">
+          <div className="mb-6">
+            <h3 className="text-base font-bold text-emerald-200 mb-2 tracking-wide uppercase">Popular Reimaginings</h3>
+            <QuickTransformations book={book} />
+          </div>
+          <h3 className="text-base font-bold text-emerald-200 mb-4 tracking-wide uppercase">Advanced Transformations</h3>
+
           <Tabs value={activeTab} onValueChange={setActiveTab}>
             <TabsList className="flex flex-row gap-2 mb-6 scroll-mt-24 sticky top-16 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 z-10 py-2 overflow-x-auto whitespace-nowrap scrollbar-hide border-b border-emerald-900 h-14">
               <TabsTrigger
                 key="narrator"
                 value="narrator"
                 id="story-transform-narrator"
-                className="flex flex-col items-center justify-center min-w-[90px] h-12 px-3 py-1 text-emerald-100 border-b-2 border-transparent data-[state=active]:border-emerald-400 data-[state=active]:text-emerald-400 bg-transparent data-[state=active]:bg-transparent transition-all duration-200 overflow-hidden"
+                className="flex flex-col items-center justify-center min-w-[90px] h-12 px-3 py-1 font-semibold text-base text-emerald-100 border-b-2 border-transparent data-[state=active]:border-emerald-400 data-[state=active]:text-emerald-400 bg-transparent data-[state=active]:bg-transparent transition-all duration-200 overflow-hidden tracking-wide"
                 title="Narrator"
               >
                 <Mic className="h-4 w-4 mr-2" />
-                <span className="text-xs mt-1 whitespace-normal break-words w-full text-center">Narrator</span>
+                <span className="text-sm mt-1 whitespace-normal break-words w-full text-center">Narrator</span>
               </TabsTrigger>
               <TabsTrigger
                 key="length"
                 value="length"
                 id="story-transform-length"
-                className="flex flex-col items-center justify-center min-w-[90px] h-12 px-3 py-1 text-emerald-100 border-b-2 border-transparent data-[state=active]:border-emerald-400 data-[state=active]:text-emerald-400 bg-transparent data-[state=active]:bg-transparent transition-all duration-200 overflow-hidden"
+                className="flex flex-col items-center justify-center min-w-[90px] h-12 px-3 py-1 font-semibold text-base text-emerald-100 border-b-2 border-transparent data-[state=active]:border-emerald-400 data-[state=active]:text-emerald-400 bg-transparent data-[state=active]:bg-transparent transition-all duration-200 overflow-hidden tracking-wide"
                 title="Length"
               >
                 <Clock className="h-4 w-4 mr-2" />
-                <span className="text-xs mt-1 whitespace-normal break-words w-full text-center">Length</span>
+                <span className="text-sm mt-1 whitespace-normal break-words w-full text-center">Length</span>
               </TabsTrigger>
               <TabsTrigger
                 key="genre"
                 value="genre"
                 id="story-transform-genre"
-                className="flex flex-col items-center justify-center min-w-[90px] h-12 px-3 py-1 text-emerald-100 border-b-2 border-transparent data-[state=active]:border-emerald-400 data-[state=active]:text-emerald-400 bg-transparent data-[state=active]:bg-transparent transition-all duration-200 overflow-hidden"
+                className="flex flex-col items-center justify-center min-w-[90px] h-12 px-3 py-1 font-semibold text-base text-emerald-100 border-b-2 border-transparent data-[state=active]:border-emerald-400 data-[state=active]:text-emerald-400 bg-transparent data-[state=active]:bg-transparent transition-all duration-200 overflow-hidden tracking-wide"
                 title="Genre"
               >
                 <BookText className="h-4 w-4 mr-2" />
-                <span className="text-xs mt-1 whitespace-normal break-words w-full text-center">Genre</span>
+                <span className="text-sm mt-1 whitespace-normal break-words w-full text-center">Genre</span>
               </TabsTrigger>
               <TabsTrigger
                 key="time"
                 value="time"
                 id="story-transform-time"
-                className="flex flex-col items-center justify-center min-w-[90px] h-12 px-3 py-1 text-emerald-100 border-b-2 border-transparent data-[state=active]:border-emerald-400 data-[state=active]:text-emerald-400 bg-transparent data-[state=active]:bg-transparent transition-all duration-200 overflow-hidden"
+                className="flex flex-col items-center justify-center min-w-[90px] h-12 px-3 py-1 font-semibold text-base text-emerald-100 border-b-2 border-transparent data-[state=active]:border-emerald-400 data-[state=active]:text-emerald-400 bg-transparent data-[state=active]:bg-transparent transition-all duration-200 overflow-hidden tracking-wide"
                 title="Time Period"
               >
                 <Globe className="h-4 w-4 mr-2" />
-                <span className="text-xs mt-1 whitespace-normal break-words w-full text-center">Time Period</span>
+                <span className="text-sm mt-1 whitespace-normal break-words w-full text-center">Time Period</span>
               </TabsTrigger>
               <TabsTrigger
                 key="perspective"
                 value="perspective"
                 id="story-transform-perspective"
-                className="flex flex-col items-center justify-center min-w-[90px] h-12 px-3 py-1 text-emerald-100 border-b-2 border-transparent data-[state=active]:border-emerald-400 data-[state=active]:text-emerald-400 bg-transparent data-[state=active]:bg-transparent transition-all duration-200 overflow-hidden"
+                className="flex flex-col items-center justify-center min-w-[90px] h-12 px-3 py-1 font-semibold text-base text-emerald-100 border-b-2 border-transparent data-[state=active]:border-emerald-400 data-[state=active]:text-emerald-400 bg-transparent data-[state=active]:bg-transparent transition-all duration-200 overflow-hidden tracking-wide"
                 title="Perspective"
               >
                 <Users className="h-4 w-4 mr-2" />
-                <span className="text-xs mt-1 whitespace-normal break-words w-full text-center">Perspective</span>
+                <span className="text-sm mt-1 whitespace-normal break-words w-full text-center">Perspective</span>
               </TabsTrigger>
               <TabsTrigger
                 key="custom"
                 value="custom"
                 id="story-transform-custom"
-                className="flex flex-col items-center justify-center min-w-[90px] h-12 px-3 py-1 text-emerald-100 border-b-2 border-transparent data-[state=active]:border-emerald-400 data-[state=active]:text-emerald-400 bg-transparent data-[state=active]:bg-transparent transition-all duration-200 overflow-hidden"
+                className="flex flex-col items-center justify-center min-w-[90px] h-12 px-3 py-1 font-semibold text-base text-emerald-100 border-b-2 border-transparent data-[state=active]:border-emerald-400 data-[state=active]:text-emerald-400 bg-transparent data-[state=active]:bg-transparent transition-all duration-200 overflow-hidden tracking-wide"
                 title="Custom"
               >
                 <Sparkles className="h-4 w-4 mr-2" />
-                <span className="text-xs mt-1 whitespace-normal break-words w-full text-center">Custom</span>
+                <span className="text-sm mt-1 whitespace-normal break-words w-full text-center">Custom</span>
               </TabsTrigger>
             </TabsList>
 
